@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "f7e56ee5-41f1-40d4-9a10-e400d49f18f1",
+		"name": "spqr-review",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14680417"
+	},
+	"item": [
+		{
+			"name": "getAllUsers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  getAllUsers{\r\n    id\r\n    contactInformation{\r\n        id\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserWithID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getUserWithID($id: Long){\r\n  getUserWithID(id: $id){\r\n    id\r\n    contactInformation{\r\n        id\r\n    }\r\n  }\r\n}",
+						"variables": "{\r\n    \"id\": 1\r\n}"
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add User mutation request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation addNewUser($newUser: UserInput){\r\n  addUser(newUser: $newUser ){\r\n      id\r\n      name\r\n      userName\r\n      role\r\n  }\r\n  \r\n} ",
+						"variables": "{\r\n    \"newUser\": {\r\n    \"id\": 1,\r\n    \"name\": \"johnny\",\r\n    \"userName\": \"yosh\",\r\n    \"role\": \"test2\",\r\n    \"photo\": \"test\",\r\n    \"contactInformation\": {\r\n        \r\n    }\r\n  }\r\n}"
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
